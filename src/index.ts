@@ -1,2 +1,9 @@
-const name: string = 'NOC!!';
-console.log(`Hello ${name}`);
+import { Server } from './presentation/server';
+
+(async () => {
+  main();
+})();
+
+function main() {
+  Server.start();
+}
