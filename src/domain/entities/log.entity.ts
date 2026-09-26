@@ -1,4 +1,4 @@
-export enum LogLevel {
+export enum LogSeverityLevel {
   low = 'low',
   medium = 'medium',
   high = 'high',
@@ -6,7 +6,7 @@ export enum LogLevel {
 
 export class LogEntity {
   constructor(
-    public level: LogLevel,
+    public level: LogSeverityLevel,
     public message: string,
     public timestamp: Date,
   ) {}
