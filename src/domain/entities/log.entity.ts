@@ -13,8 +13,8 @@ export class LogEntity {
 
   static fromJson = (jsonData: string): LogEntity => {
     const { level, message, timestamp } = JSON.parse(jsonData);
-    const log = new LogEntity(level, message);
-    log.timestamp = new Date(timestamp);
+    const realTimestamp = new Date(timestamp);
+    const log = new LogEntity(level, message, realTimestamp);
 
     return log;
   };
