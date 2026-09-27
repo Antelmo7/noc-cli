@@ -11,8 +11,8 @@ type ErrorCallback = (error: string) => void;
 export class CheckService implements CheckServiceUseCase {
   constructor(
     private readonly logRepository: LogRepository,
-    private readonly successCallback: SuccessCallback,
-    private readonly errorCallback: ErrorCallback,
+    private readonly successCallback?: SuccessCallback,
+    private readonly errorCallback?: ErrorCallback,
   ) {}
 
   public async execute(url: string): Promise<boolean> {
@@ -27,7 +27,7 @@ export class CheckService implements CheckServiceUseCase {
       );
 
       this.logRepository.saveLog(log);
-      this.successCallback();
+      if (this.successCallback) this.successCallback();
 
       return true;
     } catch (error) {
@@ -35,7 +35,7 @@ export class CheckService implements CheckServiceUseCase {
       const log = new LogEntity(LogSeverityLevel.high, errrorMsg, new Date());
 
       this.logRepository.saveLog(log);
-      this.errorCallback(errrorMsg);
+      if (this.errorCallback) this.errorCallback(errrorMsg);
 
       return false;
     }
