@@ -1,16 +1,16 @@
 import { CheckService } from '../domain/use-cases/checks/check-service';
-// import { FileSystemDataSource } from '../infrastructure/datasources/file-system.datasource';
 import { MongoLogDataSource } from '../infrastructure/datasources/mongo-log.datasource';
+// import { FileSystemDataSource } from '../infrastructure/datasources/file-system.datasource';
 import { LogRepositoryImpl } from '../infrastructure/repositories/log.repository';
 import { CronService } from './cron/cron-service';
 
 const logRepository = new LogRepositoryImpl(
-  // new FileSystemDataSource()
+  // new FileSystemDataSource(),
   new MongoLogDataSource(),
 );
 
 export class Server {
-  public static start() {
+  public static async start() {
     console.log('Server started');
 
     // new SendEmailLogs(emailService, fileSystemLogRepository).execute(

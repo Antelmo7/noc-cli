@@ -31,7 +31,7 @@ export class LogEntity {
     const log = new LogEntity({
       level,
       message,
-      timestamp,
+      timestamp: realTimestamp,
       origin,
     });
 
