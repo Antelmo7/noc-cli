@@ -1,6 +1,6 @@
 import { PrismaPg } from '@prisma/adapter-pg';
 import 'dotenv/config';
-import { PrismaClient } from '../../../generated/prisma/client';
+import { PrismaClient } from '../../config/generated/prisma/client.js';
 
 const connectionString = `${process.env.POSTGRES_URL}`;
 

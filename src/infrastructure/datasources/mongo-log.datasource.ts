@@ -1,6 +1,9 @@
-import { LogModel } from '../../data/mongodb';
-import { LogDataSource } from '../../domain/datasources/log.datasource';
-import { LogEntity, LogSeverityLevel } from '../../domain/entities/log.entity';
+import { LogModel } from '../../data/mongodb/index.js';
+import { LogDataSource } from '../../domain/datasources/log.datasource.js';
+import {
+  LogEntity,
+  LogSeverityLevel,
+} from '../../domain/entities/log.entity.js';
 
 export class MongoLogDataSource implements LogDataSource {
   async saveLog(log: LogEntity): Promise<void> {
