@@ -1,13 +1,13 @@
 import { CheckService } from '../domain/use-cases/checks/check-service';
-import { FileSystemDataSource } from '../infrastructure/datasources/file-system.datasource';
+// import { FileSystemDataSource } from '../infrastructure/datasources/file-system.datasource';
+import { MongoLogDataSource } from '../infrastructure/datasources/mongo-log.datasource';
 import { LogRepositoryImpl } from '../infrastructure/repositories/log.repository';
 import { CronService } from './cron/cron-service';
-import { EmailService } from './email/email.service';
 
-const fileSystemLogRepository = new LogRepositoryImpl(
-  new FileSystemDataSource(),
+const logRepository = new LogRepositoryImpl(
+  // new FileSystemDataSource()
+  new MongoLogDataSource(),
 );
-const emailService = new EmailService();
 
 export class Server {
   public static start() {
@@ -20,7 +20,7 @@ export class Server {
     const job = CronService.createJob('*/2 * * * * *', async () => {
       const url = 'https://www.google.com';
       const active = await new CheckService(
-        fileSystemLogRepository,
+        logRepository,
         // () => console.log(`${url} is up`),
         // (error) => console.error(error),
       ).execute(url);
