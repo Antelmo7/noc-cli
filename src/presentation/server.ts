@@ -1,6 +1,6 @@
-import { FileSystemDataSource } from '../domain/infrastructure/datasources/file-system.datasource';
-import { LogRepositoryImpl } from '../domain/infrastructure/repositories/log.repository';
 import { CheckService } from '../domain/use-cases/checks/check-service';
+import { FileSystemDataSource } from '../infrastructure/datasources/file-system.datasource';
+import { LogRepositoryImpl } from '../infrastructure/repositories/log.repository';
 import { CronService } from './cron/cron-service';
 import { EmailService } from './email/email.service';
 
