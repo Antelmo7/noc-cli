@@ -2,6 +2,7 @@ import 'dotenv/config';
 import env from 'env-var';
 
 export const envs = {
+  PORT: env.get('PORT').required().asIntPositive(),
   MAILER_SERVICE: env.get('MAILER_SERVICE').required().asString(),
   MAILER_EMAIL: env.get('MAILER_EMAIL').required().asEmailString(),
   MAILER_SECRET_KEY: env.get('MAILER_SECRET_KEY').required().asString(),
@@ -14,8 +15,8 @@ export const envs = {
   MONGO_PASS: env.get('MONGO_PASS').required().asString(),
 
   // PostgreSQL
-  // POSTGRES_URL: env.get('POSTGRES_URL').required().asString(),
-  // POSTGRES_DB_NAME: env.get('POSTGRES_DB_NAME').required().asString(),
-  // POSTGRES_USER: env.get('POSTGRES_USER').required().asString(),
-  // POSTGRES_PASS: env.get('POSTGRES_PASS').required().asString(),
+  POSTGRES_URL: env.get('POSTGRES_URL').required().asString(),
+  POSTGRES_DB_NAME: env.get('POSTGRES_DB_NAME').required().asString(),
+  POSTGRES_USER: env.get('POSTGRES_USER').required().asString(),
+  POSTGRES_PASS: env.get('POSTGRES_PASS').required().asString(),
 };
