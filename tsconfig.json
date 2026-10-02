@@ -1,5 +1,6 @@
 {
   "exclude": ["node_modules", "dist"],
+  "testPathIgnorePatterns": ["/node_modules/", "/dist/"],
   "include": ["src"],
   // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
