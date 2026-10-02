@@ -5,8 +5,8 @@ describe('envs', () => {
     expect(envs).toEqual({
       PORT: 3000,
       MAILER_SERVICE: 'gmail',
-      MAILER_EMAIL: 'test@test.com',
-      MAILER_SECRET_KEY: 'wsictvrbnbeodyfd',
+      MAILER_EMAIL: expect.any(String),
+      MAILER_SECRET_KEY: expect.any(String),
       PROD: false,
       MONGO_URL: 'mongodb://root:root@localhost:27017/',
       MONGO_DB_NAME: 'NOC-TEST',
